@@ -93,4 +93,61 @@ public class UserController {
         userService.updateUser(user);
         return JSON.toJSONString("true");
     }
+
+    //验证密码
+    @RequestMapping("/originCode.do")
+    @ResponseBody
+    public String originCode(String password,HttpSession session){
+        String username=(String)session.getAttribute("username");
+        String pwd=userService.originCode(username);
+        if(password.equals(pwd)){
+            return JSON.toJSONString("true");
+        }
+        return JSON.toJSONString("false");
+    }
+
+    //更新密码
+    @RequestMapping("/updatePwd.do")
+    @ResponseBody
+    public String updatePwd(User user,HttpSession session){
+        String username=(String)session.getAttribute("username");
+        user.setUsername(username);
+        userService.updatePwd(user);
+        return JSON.toJSONString("true");
+    }
+
+    //分页显示所有用户
+    @RequestMapping("/showAll.do")
+    @ResponseBody
+    public String showAll(int pageNo,int pageSize){
+        pageNo=(pageNo-1)*pageSize;
+        List<User> list=userService.showAll(pageNo,pageSize);
+        return JSON.toJSONString(list);
+    }
+
+    //按时间段查询分页
+    @RequestMapping("/find.do")
+    @ResponseBody
+    public String toFind(String datemin,String datemax,int pageNo,int pageSize){
+        pageNo=(pageNo-1)*pageSize;
+        List<User>list=userService.find(datemin,datemax,pageNo,pageSize);
+        return JSON.toJSONString(list);
+    }
+
+    //模糊查询
+    @RequestMapping("/findUserByKey.do")
+    @ResponseBody
+    public String findUserByKey(String keywords,int pageNo,int pageSize){
+        pageNo=(pageNo-1)*pageSize;
+        List<User>list=userService.findUserByKey(keywords,pageNo,pageSize);
+        return JSON.toJSONString(list);
+    }
+
+    //修改状态
+    @RequestMapping("/updateStatus.do")
+    @ResponseBody
+    public String updateStatus(User user){
+        userService.updateStatus(user);
+        return JSON.toJSONString("true");
+    }
 }

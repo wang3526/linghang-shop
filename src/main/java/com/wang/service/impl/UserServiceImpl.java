@@ -3,7 +3,6 @@ package com.wang.service.impl;
 import com.wang.domain.User;
 import com.wang.mapper.UserMapper;
 import com.wang.service.UserService;
-import org.springframework.orm.hibernate5.SessionHolder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -98,6 +97,66 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user) {
         try {
             userMapper.updateUser(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //验证密码
+    @Override
+    public String originCode(String username) {
+        try {
+            User user1=userMapper.getPassword(username);
+            return user1.getPassword();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+    //更新密码
+    @Override
+    public void updatePwd(User user) {
+        try {
+            userMapper.updatePwd(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //分页显示所有用户信息
+    @Override
+    public List<User> showAll(int pageNo, int pageSize) {
+        try {
+            return userMapper.showAll(pageNo,pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //按时间段查询分页
+    @Override
+    public List<User> find(String datemin, String datemax, int pageNo, int pageSize) {
+        try {
+            return userMapper.find(datemin,datemax,pageNo,pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<User> findUserByKey(String keywords, int pageNo, int pageSize) {
+        try {
+            return userMapper.findUserByKey(keywords,pageNo,pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void updateStatus(User user) {
+        try {
+            userMapper.updateStatus(user);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace命名空间，作用就是对SQL进行分类化管理，理解SQL隔离
+ 注意：使用mapper代理方法开发，namespace有特殊重要的作用，namespace等于mapper接口地址
+-->
+<mapper namespace="com.wang.mapper.UserMapper">
+    <!--查询用户名-->
+    <select id="getUserName" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT username FROM USER WHERE username=#{value}
+    </select>
+    <!--注册-->
+    <insert id="register" parameterType="User">
+        INSERT INTO USER(username, password) VALUES (#{username},#{password})
+    </insert>
+    <!--验证密码-->
+    <select id="getPassword" parameterType="java.lang.String" resultType="User">
+        SELECT * FROM USER WHERE username=#{username}
+    </select>
+    <!--获取用户-->
+    <select id="getUser" parameterType="java.lang.String" resultType="User">
+        select * from user where username=#{username}
+    </select>
+    <!--更新用户图片-->
+    <update id="updateUserImg" parameterType="User">
+        update user set img_path=#{imgPath} where username=#{username}
+    </update>
+    <!--修改用户信息-->
+    <update id="updateUser" parameterType="User">
+        update user
+        <set>
+          <if test="sex!=null">sex=#{sex},</if>
+          <if test="name!=null">name=#{name},</if>
+          <if test="birthday!=null">birthday=#{birthday},</if>
+          <if test="email!=null">email=#{email}</if>
+        </set>
+        where username=#{username}
+    </update>
+    <!--更新密码-->
+    <update id="updatePwd" parameterType="User">
+        update user set password=#{password} where username=#{username}
+    </update>
+    <!--分页显示所有用户信息-->
+    <select id="showAll" resultType="User">
+        select * from user limit #{pageNo},#{pageSize}
+    </select>
+    <!--按时间段查询分页-->
+    <select id="find" resultType="User">
+        select * from user where createtime between #{datemin} and DATE_ADD(#{datemax},INTERVAL 1 DAY) limit #{pageNo},#{pageSize}
+    </select>
+    <!--模糊查询-->
+    <select id="findUserByKey" resultType="User">
+        <bind name="username" value="'%'+keyword+'%'"></bind>
+        <bind name="phone" value="'%'+keyword+'%'"></bind>
+        <bind name="email" value="'%'+keyword+'%'"></bind>
+        select * from user where username like #{username} or phone like #{phone} or email like #{email} limit #{pageNo},#{pageSize}
+    </select>
+    <!--修改状态-->
+    <update id="updateStatus" parameterType="User">
+        update user set status=#{status} where id=#{id}
+    </update>
+</mapper>

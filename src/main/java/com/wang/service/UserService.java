@@ -19,4 +19,16 @@ public interface UserService {
     public void updateUserImg(User user);
     //更新用户信息
     public void updateUser(User user);
+    //验证密码
+    public String originCode(String username);
+    //更新密码
+    public void updatePwd(User user);
+    //分页显示所有用户信息
+    public List<User> showAll(int pageNo,int pageSize);
+    //按时间段查询分页
+    public List<User> find(String datemin,String datemax,int pageNo,int pageSize);
+    //模糊查询
+    public List<User> findUserByKey(String keywords,int pageNo,int pageSize);
+    //修改状态
+    public void updateStatus(User user);
 }

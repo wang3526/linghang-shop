@@ -1,9 +1,12 @@
 package com.wang.mapper;
 
 import com.wang.domain.User;
-import org.mybatis.spring.annotation.MapperScan;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-@MapperScan
+import java.util.List;
+
+@Repository
 public interface UserMapper {
     //查询用户名
     public String getUserName(String username)throws Exception;
@@ -17,4 +20,14 @@ public interface UserMapper {
     public void updateUserImg(User user)throws Exception;
     //修改用户信息
     public void updateUser(User user)throws Exception;
+    //更新密码
+    public void updatePwd(User user)throws Exception;
+    //分页显示所有用户
+    public List<User> showAll(@Param("pageNo")int pageNo,@Param("pageSize")int pageSize)throws Exception;
+    //按时间段查询分页
+    public List<User> find(@Param("datemin")String datemin,@Param("datemax")String datemax,@Param("pageNo")int pageNo,@Param("pageSize")int pageSize)throws Exception;
+    //模糊查询
+    public List<User> findUserByKey(@Param("keyword")String keywords,@Param("pageNo")int pageNo,@Param("pageSize")int pageSize)throws Exception;
+    //修改状态
+    public void updateStatus(User user)throws Exception;
 }

@@ -1,6 +1,7 @@
+var path = "/" + location.pathname.split("/")[1];
+
 $(function () {
     $("#user-old-password").blur(function () {
-        var path = "/" + location.pathname.split("/")[1];
         $.post(path+"/user/originCode.do",
             {"password":$("#user-old-password").val()},
             function (data) {
@@ -21,7 +22,6 @@ $(function () {
 
 $(function () {
     $("#r-pwd").click(function () {
-        var path = "/" + location.pathname.split("/")[1];
         $.post(path+"/user/updatePwd.do",
             {"password":$("#user-confirm-password").val()},
             function (data) {
