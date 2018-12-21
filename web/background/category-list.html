@@ -29,16 +29,19 @@
 		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
 		-
 		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">-->
-		<select id="c-l-name" name="name" class="input-text" style="width:120px;">
-			<option>品类名称</option>
+		<select id="i-l-root" name="name" class="input-text" style="width:120px;">
+			<option value="-1">根目录</option>
 		</select>
-		<select id="c-l-status" class="input-text" style="width:120px;">
+		<select id="i-l-second" name="name" class="input-text" style="width:120px;">
+			<option value="-1">二级目录</option>
+		</select>
+		<select id="i-l-status" class="input-text" style="width:120px;">
 			<option value="-1">选择状态</option>
 			<option value="0">已上架</option>
 			<option value="1">未上架</option>
 		</select>
-		<input  id="c-l-content" type="text" class="input-text" style="width:250px" placeholder="输入关键字" name="keyword">
-		<button id="c-l-submit" type="submit" class="btn btn-success radius"  name=""><i class="Hui-iconfont">&#xe665;</i> 搜品类</button>
+		<!--<input  id="i-l-content" type="text" class="input-text" style="width:250px" placeholder="输入关键字" name="keyword">-->
+		<button id="i-l-submit" type="submit" class="btn btn-success radius"  name=""><i class="Hui-iconfont">&#xe665;</i> 搜品类</button>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><!--<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> --><a href="category-add.html" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 新增品类</a></span> <span class="r">共有数据：<strong id="num">88</strong> 条</span> </div>
 	<div class="mt-20">
@@ -48,9 +51,10 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="60">ID</th>
-				<th width="60">排序</th>
+				<th width="60">上级分类</th>
 				<th width="80">品类名称</th>
-				<th width="200">品类描述</th>
+				<th width="60">是否是根目录</th>
+				<th width="60">排序</th>
 				<th width="100">新增时间</th>
 				<th width="40">状态</th>
 				<th width="100">操作</th>

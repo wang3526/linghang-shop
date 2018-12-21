@@ -29,29 +29,38 @@
 				<span class="c-red">*</span>
 				排序：</label>
 			<div class="formControls col-xs-6 col-sm-6">
-				<input  id="c-sort" type="text" class="input-text" value="" placeholder="请输入正整数" name="sort">
+				<input  id="i-a-sort" type="text" class="input-text" value="" placeholder="请输入正整数" name="sort">
 			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>是否为根目录：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="width: 200px"> <span class="select-box">
+				<select name="" id="i-a-root" class="select">
+					<option value="-1">--请选择--</option>
+					<option value="0">否</option>
+					<option value="1">是</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>上级目录：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="width: 200px"> <span class="select-box">
+				<select name="" id="i-a-pro" class="select">
+					<option value="0">选择上级目录</option>
+				</select>
+				</span> </div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
 				品类名称：</label>
 			<div class="formControls col-xs-6 col-sm-6">
-				<input  id="c-name" type="text" class="input-text" value="" placeholder="请输入名称" onblur="testName()" name="name"><p id="meg"></p>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">
-				<span class="c-red">*</span>
-				品类描述：</label>
-			<div class="formControls col-xs-6 col-sm-6">
-				<textarea id="c-content" name="content" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="$.Huitextarealength(this,100)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+				<input  id="i-a-name" type="text" class="input-text" value="" placeholder="请输入名称" onblur="testName()" name="name"><p id="meg"></p>
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-9 col-offset-2">
-				<a id="c-submit" onclick="addBreed()" class="btn btn-primary radius">提交</a>
+				<a id="i-a-submit" onclick="addItemCategory()" class="btn btn-primary radius">提交</a>
 			</div>
 		</div>
 		<p id="msg3"></p>
