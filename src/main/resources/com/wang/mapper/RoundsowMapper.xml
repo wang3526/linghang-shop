@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.RoundsowMapper">
+    <!--添加轮播图-->
+    <insert id="addRound" parameterType="Roundsow">
+        insert into roundsow(img_path, i_id,sort)values (#{imgPath},#{iId},#{sort})
+    </insert>
+    <!--列表显示-->
+    <select id="showRound" resultType="HashMap">
+        select r.id,r.img_path,i.title,r.status,r.sort,r.i_id,r.create_time from roundsow r,item i
+        where i.id=r.i_id and r.status!=3 order by r.create_time desc limit #{pageNo},#{pageSize};
+    </select>
+    <!--修改状态-->
+    <update id="updateStatus" parameterType="Roundsow">
+        update roundsow set status=#{status} where id=#{id}
+    </update>
+    <!--根据状态查询-->
+    <select id="query" resultType="HashMap">
+        select r.id,r.img_path,i.title,r.status,r.sort,r.i_id,r.create_time from roundsow r,item i
+        where i.id=r.i_id and r.status=#{status} order by r.create_time desc limit #{pageNo},#{pageSize};
+    </select>
+</mapper>

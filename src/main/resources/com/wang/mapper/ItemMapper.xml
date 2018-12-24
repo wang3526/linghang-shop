@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.ItemMapper">
+    <!--验证商品名称-->
+    <select id="testTitle" resultType="String">
+        select title from item where title=#{title} and status!=3
+    </select>
+    <!--添加商品-->
+    <insert id="addItem" parameterType="Item">
+        insert into item(title, sell_point, price, num, img_path, c_id, descript, updatetime)
+        values (#{title},#{sellPoint},#{price},#{num},#{imgPath},#{cId},#{descript},#{updatetime})
+    </insert>
+    <!--多条件查询-->
+    <select id="select" resultType="HashMap">
+        <bind name="title" value="'%'+keyword+'%'"></bind>
+        select i.id,i.c_id,c.name,i.title,i.sell_point,i.price,i.num,i.status,i.createtime from item i,item_category c
+        <where>
+            i.c_id=c.id and i.status!=3
+            <if test="cId!=0">and i.c_id=#{cId}</if>
+            <if test="status!=0">and i.status=#{status}</if>
+            <if test="keyword!=''">and i.title like #{title}</if>
+        </where>
+        limit #{page},#{size}
+    </select>
+    <!--修改状态-->
+    <update id="updateStatus" parameterType="Item">
+        update item set status=#{status} where id=#{id}
+    </update>
+    <!--删除-->
+    <update id="delete">
+        update item set status=3 where id=#{id}
+    </update>
+    <!--获取指定商品-->
+    <select id="getItem" resultType="HashMap">
+        select i.id,i.title,c.name,i.sell_point,i.price,i.num,i.img_path,i.descript from item i,item_category c where i.c_id=c.id and i.id=#{id};
+    </select>
+    <!--修改商品-->
+    <update id="editItem" parameterType="Item">
+        update item
+        <set>
+          title=#{title},sell_point=#{sellPoint},price=#{price},num=#{num},descript=#{descript},
+            <if test="imgPath!=null">img_path=#{imgPath}</if>
+        </set>
+        where id=#{id}
+    </update>
+    <!--根据cId获取商品-->
+    <select id="getItemByCid" resultType="Item">
+        select id,title from item where c_id=#{cId} and status=1
+    </select>
+</mapper>

@@ -25,4 +25,10 @@ public interface ItemCategoryService {
     public ItemCategory getItemCategoryById(int id);
     //修改分类
     public void editItemCategory(ItemCategory itemCategory);
+    //获取二级目录
+    public List<ItemCategory> getProAll();
+    //一对多查询
+    public List<ItemCategory> getShowItem(int parentId);
+    //首页列表一对多
+    public List<ItemCategory> getListItem(int id);
 }

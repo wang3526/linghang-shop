@@ -72,6 +72,21 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
         itemCategoryMapper.editItemCategory(itemCategory);
     }
 
+    @Override
+    public List<ItemCategory> getProAll() {
+        return itemCategoryMapper.getProAll();
+    }
+
+    @Override
+    public List<ItemCategory> getShowItem(int parentId) {
+        return itemCategoryMapper.getShowItem(parentId);
+    }
+
+    @Override
+    public List<ItemCategory> getListItem(int id) {
+        return itemCategoryMapper.getListItem(id);
+    }
+
     public void setItemCategoryMapper(ItemCategoryMapper itemCategoryMapper) {
         this.itemCategoryMapper = itemCategoryMapper;
     }

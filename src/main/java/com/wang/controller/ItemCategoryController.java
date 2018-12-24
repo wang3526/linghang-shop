@@ -112,6 +112,33 @@ public class ItemCategoryController {
         itemCategoryService.editItemCategory(itemCategory);
         return JSON.toJSONString("true");
     }
+
+    //获取所有二级目录
+    @RequestMapping("/getProAll.do")
+    @ResponseBody
+    public String getProAll(){
+        List<ItemCategory> list=itemCategoryService.getProAll();
+        if(list!=null&&list.size()>0){
+            return JSON.toJSONString(list);
+        }
+        return JSON.toJSONString("false");
+    }
+
+    //首页商品
+    @RequestMapping("/show.do")
+    @ResponseBody
+    public String getShowItem(int parentId){
+        List<ItemCategory> list=itemCategoryService.getShowItem(parentId);
+        return JSON.toJSONString(list);
+    }
+
+    //首页列表
+    @RequestMapping("/getListItem.do")
+    @ResponseBody
+    public String getListItem(int id){
+        List<ItemCategory> list=itemCategoryService.getListItem(id);
+        return JSON.toJSONString(list);
+    }
     public void setItemCategoryService(ItemCategoryService itemCategoryService) {
         this.itemCategoryService = itemCategoryService;
     }

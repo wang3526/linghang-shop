@@ -1,6 +1,8 @@
 package com.wang.domain;
 
 
+import java.util.List;
+
 public class ItemCategory {
 
   private int id;
@@ -10,7 +12,15 @@ public class ItemCategory {
   private int sort;
   private int isParent;
   private java.sql.Timestamp createtime;
+  private List<Item> list;
 
+  public List<Item> getList() {
+    return list;
+  }
+
+  public void setList(List<Item> list) {
+    this.list = list;
+  }
 
   public int getId() {
     return id;

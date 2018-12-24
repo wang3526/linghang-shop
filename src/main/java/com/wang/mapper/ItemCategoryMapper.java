@@ -28,4 +28,10 @@ public interface ItemCategoryMapper {
     public ItemCategory getItemCategoryById(int id);
     //修改分类
     public void editItemCategory(ItemCategory itemCategory);
+    //获取二级目录
+    public List<ItemCategory> getProAll();
+    //首页商品一对多查询
+    public List<ItemCategory> getShowItem(int parentId);
+    //首页列表一对多
+    public List<ItemCategory> getListItem(int id);
 }

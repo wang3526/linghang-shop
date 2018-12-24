@@ -50,4 +50,22 @@
     <update id="editItemCategory" parameterType="ItemCategory">
         update item_category set name=#{name},sort=#{sort} where id=#{id}
     </update>
+    <!--获取所有二级目录-->
+    <select id="getProAll" resultType="ItemCategory">
+        select * from item_category where is_parent=0;
+    </select>
+    <!--首页展示商品一对多-->
+    <select id="getShowItem" resultType="item">
+        select i.c_id,i.id,i.title,i.sell_point,i.price,i.num,i.img_path,i.status from item i,item_category c
+        where i.c_id=c.id and i.status=1 and c.parent_id=#{parentId} order by i.createtime desc limit 0,5
+    </select>
+    <resultMap id="item" type="ItemCategory" autoMapping="true">
+        <collection property="list" ofType="Item" autoMapping="true">
+        </collection>
+    </resultMap>
+    <!--首页列表一对多-->
+    <select id="getListItem" resultType="item">
+        select i.c_id,i.id,i.title,i.status from item i,item_category c
+        where i.c_id=c.id and i.status=1 and i.c_id=#{id} order by i.createtime desc
+    </select>
 </mapper>
