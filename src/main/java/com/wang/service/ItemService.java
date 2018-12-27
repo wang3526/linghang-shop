@@ -22,4 +22,8 @@ public interface ItemService {
     public void editItem(Item item);
     //根据cId获取商品
     public List<Item> getItemByCid(int cId);
+    //
+    public Item getItemById(int id);
+    //根据id获取同类商品
+    public List<Item> getCateItemById(int id);
 }

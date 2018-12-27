@@ -66,6 +66,13 @@ public class RoundsowController {
         return JSON.toJSONString(list);
     }
 
+    //首页轮播
+    @RequestMapping("/getHomeRound.do")
+    @ResponseBody
+    public String getHomeRound(){
+        List<Roundsow> list=roundsowService.getHomeRound();
+        return JSON.toJSONString(list);
+    }
     public void setRoundsowService(RoundsowService roundsowService) {
         this.roundsowService = roundsowService;
     }

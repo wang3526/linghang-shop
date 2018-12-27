@@ -22,4 +22,8 @@
         select r.id,r.img_path,i.title,r.status,r.sort,r.i_id,r.create_time from roundsow r,item i
         where i.id=r.i_id and r.status=#{status} order by r.create_time desc limit #{pageNo},#{pageSize};
     </select>
+    <!--首页轮播-->
+    <select id="getHomeRound" resultType="Roundsow">
+        select * from roundsow where status=1 order by create_time desc limit 0,4
+    </select>
 </mapper>

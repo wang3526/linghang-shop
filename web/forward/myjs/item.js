@@ -93,3 +93,15 @@ function getItemList(id) {
         }
     },"json")
 }
+
+$(function () {
+    $.get(path+"/round/getHomeRound.do",function (data) {
+        if(data.length>0){
+            $("#h-banner3_clone").append('<a href="introduction.html?id='+data[data.length-1].iId+'"><img src="'+path+data[data.length-1].imgPath+'" style="width: 1010px;height: 440px"/></a>');
+            for (var i in data){
+                $("#h-banner"+i).append('<a href="introduction.html?id='+data[i].iId+'"><img src="'+path+data[i].imgPath+'" style="width: 1010px;height: 440px"/></a>');
+            }
+            $("#h-banner0_clone").append('<a href="introduction.html?id='+data[0].iId+'"><img src="'+path+data[0].imgPath+'" style="width: 1010px;height: 440px"/></a>');
+        }
+    },"json")
+})

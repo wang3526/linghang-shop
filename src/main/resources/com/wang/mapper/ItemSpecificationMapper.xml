@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.ItemSpecificationMapper">
+    <!--添加产品规格-->
+    <insert id="addSpecification" parameterType="ItemSpecification">
+        insert into item_specification(i_id, camera_type, video_format, rear_camera, screen_type, screen_size, resolution, network_type, network_mode, style, keyboard_type, storage_capacity, run_memory, operating_system, phone_type, battery_type,item_brand, model, cpu_brand, core_number, product_name, fuselage_color)
+                            values (#{iId},#{cameraType},#{videoFormat},#{rearCamera},#{screenType},#{screenSize},#{resolution},#{networkType},#{networkMode},#{style},#{keyboardType},#{storageCapacity},#{runMemory},#{operatingSystem},#{phoneType},#{batteryType},#{itemBrand},#{model},#{cpuBrand},#{coreNumber},#{productName},#{fuselageColor})
+    </insert>
+    <!--验证商品是否添加过参数-->
+    <select id="testByIid" resultType="ItemSpecification">
+        select * from item_specification where i_id=#{iId}
+    </select>
+    <!--多条件查询-->
+    <select id="select" resultType="ItemSpecification">
+        <bind name="itemBrand" value="'%'+brand+'%'"></bind>
+        <bind name="itemModel" value="'%'+model+'%'"></bind>
+        select * from item_specification
+        <where>
+            <if test="brand!=''">item_brand like #{itemBrand}</if>
+            <if test="model!=''">and model like #{itemModel}</if>
+        </where>
+        limit #{page},#{size}
+    </select>
+    <!--通过id获取指定对象-->
+    <select id="getSpecificationById" resultType="ItemSpecification">
+        select * from item_specification where id=#{id}
+    </select>
+    <!--修改-->
+    <update id="editSpecification" parameterType="ItemSpecification">
+        update item_specification set camera_type=#{cameraType}, video_format=#{videoFormat}, rear_camera=#{rearCamera}, screen_type=#{screenType}, screen_size=#{screenSize}, resolution=#{resolution},
+        network_type=#{networkType}, network_mode=#{networkMode}, style=#{style}, keyboard_type=#{keyboardType}, storage_capacity=#{storageCapacity}, run_memory=#{runMemory}, operating_system=#{operatingSystem},
+        phone_type=#{phoneType}, battery_type=#{batteryType},item_brand=#{itemBrand}, model=#{model}, cpu_brand=#{cpuBrand}, core_number=#{coreNumber}, product_name=#{productName}, fuselage_color=#{fuselageColor} where id=#{id}
+    </update>
+</mapper>

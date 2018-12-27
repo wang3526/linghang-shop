@@ -37,6 +37,11 @@ public class RoundsowServiceImpl implements RoundsowService {
         return roundsowMapper.query(status,pageNo,pageSize);
     }
 
+    @Override
+    public List<Roundsow> getHomeRound() {
+        return roundsowMapper.getHomeRound();
+    }
+
     public void setRoundsowMapper(RoundsowMapper roundsowMapper) {
         this.roundsowMapper = roundsowMapper;
     }

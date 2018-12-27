@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="commons-codec-1.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/background/lib/ueditor/1.4.3/jsp/lib/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/background/lib/ueditor/1.4.3/jsp/lib/commons-fileupload-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/background/lib/ueditor/1.4.3/jsp/lib/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/background/lib/ueditor/1.4.3/jsp/lib/json.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

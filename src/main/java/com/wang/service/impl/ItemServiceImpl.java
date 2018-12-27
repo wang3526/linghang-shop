@@ -65,4 +65,15 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> getItemByCid(int cId) {
         return itemMapper.getItemByCid(cId);
     }
+
+    @Override
+    public Item getItemById(int id) {
+        return itemMapper.getItemById(id);
+    }
+
+    //根据id获取同类商品
+    @Override
+    public List<Item> getCateItemById(int id) {
+        return itemMapper.getCateItemById(id);
+    }
 }

@@ -17,4 +17,6 @@ public interface RoundsowMapper {
     public void updateStatus(Roundsow roundsow);
     //根据状态查询
     public List<HashMap<String,Object>> query(@Param("status")int status,@Param("pageNo")int pageNo,@Param("pageSize")int pageSize);
+    //首页轮播
+    public List<Roundsow> getHomeRound();
 }

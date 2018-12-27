@@ -132,6 +132,25 @@ public class ItemController {
         }
         return JSON.toJSONString("false");
     }
+
+    //
+    @RequestMapping("/getItemById.do")
+    @ResponseBody
+    public String getItemById(int id){
+        Item item=itemService.getItemById(id);
+        if(item!=null){
+            return JSON.toJSONString(item);
+        }
+        return JSON.toJSONString("false");
+    }
+
+    //根据id获取同类商品
+    @RequestMapping("/getCateItemById.do")
+    @ResponseBody
+    public String getCateItemById(int id){
+        List<Item> list=itemService.getCateItemById(id);
+        return JSON.toJSONString(list);
+    }
     public void setItemService(ItemService itemService) {
         this.itemService = itemService;
     }

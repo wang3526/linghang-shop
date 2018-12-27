@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>添加参数规格</title>
+</head>
+<body>
+<div class="page-container">
+	<form class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
+		<div style="width: 1000px;margin-left: auto;margin-right: auto">
+			<div class="row cl" style="border: 2px #c2ccd1 solid;width: 1000px; margin-bottom: 20px">
+				拍照功能
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>摄像头类型：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="camera-type" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>后置摄像头：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="rear-camera" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>视频显示格式：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="video-format" name="name">
+					</div>
+				</div>
+			</div>
+			<div class="row cl" style="border: 2px #c2ccd1 solid;width: 1000px; margin-bottom: 20px">
+				显示
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分辨率：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="resolution" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>触摸屏类型：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="screen-type" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>屏幕尺寸：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="screen-size" name="name">
+					</div>
+				</div>
+			</div>
+			<div class="row cl"style="border: 2px #c2ccd1 solid;width: 1000px; margin-bottom: 20px">
+				网络
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网络类型：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="network-type" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网络模式：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="network-mode" name="name">
+					</div>
+				</div>
+			</div>
+			<div class="row cl"style="border: 2px #c2ccd1 solid;width: 1000px; margin-bottom: 20px">
+				机身详情
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>键盘类型：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="keyboard-type" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>款式：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="style" name="name">
+					</div>
+				</div>
+			</div>
+			<div class="row cl"style="border: 2px #c2ccd1 solid;width: 1000px; margin-bottom: 20px">
+				存储
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>运行内存RAM：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="run-memory" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>存储容量：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="storage-capacity" name="name">
+					</div>
+				</div>
+			</div>
+			<div class="row cl"style="border: 2px #c2ccd1 solid;width: 1000px; margin-bottom: 20px">
+				基本参数
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>品牌：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="i-brand" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>型号：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="model" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>电池类型：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="battery-type" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>核心数：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="core-number" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>机身颜色：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="fuselage-color" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>手机类型：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="phone-type" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>操作系统：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="operating-system" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>CPU品牌：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="cpu-brand" name="name">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品名称：</label>
+					<div class="formControls col-xs-8 col-sm-9" style="width: 500px">
+						<input type="text" class="input-text" value="" placeholder="" id="product-name" name="name">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button id="save" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<a href="picture-list.html">
+					<button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+				</a>
+			</div>
+		</div>
+	</form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script src="myjs/specificationedit.js"></script>
+</body>
+</html>

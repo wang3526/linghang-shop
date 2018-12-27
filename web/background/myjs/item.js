@@ -82,7 +82,7 @@ $(function () {
     },"json")
 })
 
-$(function () {
+function showItem() {
     $.post(path+"/item/select.do",
         {
             "cId":$("#p-l-pro").val(),
@@ -105,7 +105,11 @@ $(function () {
                 $("#tb").empty();
             }
         },"json");
-});
+}
+
+$(function () {
+    showItem();
+})
 
 $(function () {
     $("#p-l-sub").click(function () {
@@ -179,16 +183,16 @@ function formatDate(times){
 
 //上一页
 $("#previous").click(function () {
-    page++;
-    window.location.href="product-list.html";
-});
-//下一页
-$("#next").click(function () {
     if (page==1){
         return;
     }
     page--;
-    window.location.href="product-list.html";
+    showItem();
+});
+//下一页
+$("#next").click(function () {
+    page++;
+    showItem();
 });
 
 function member_update(id,status) {

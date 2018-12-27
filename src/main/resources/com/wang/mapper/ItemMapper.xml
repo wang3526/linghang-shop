@@ -50,4 +50,18 @@
     <select id="getItemByCid" resultType="Item">
         select id,title from item where c_id=#{cId} and status=1
     </select>
+    <!---->
+    <select id="getItemById" resultMap="item">
+        select * from item where id=#{id};
+    </select>
+    <resultMap id="item" type="Item" autoMapping="true">
+        <collection property="itemSpecification" ofType="ItemSpecification" column="id" autoMapping="true" select="select1"></collection>
+    </resultMap>
+    <select id="select1" parameterType="int" resultType="ItemSpecification">
+        select * from item_specification where i_id=#{id};
+    </select>
+    <!--根据id获取同类商品-->
+    <select id="getCateItemById" resultType="Item">
+        select * from item where c_id in (select c_id from item where id=#{id}) and id!=#{id} limit 0,5
+    </select>
 </mapper>
