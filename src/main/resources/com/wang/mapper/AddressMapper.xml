@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.AddressMapper">
+    <!--添加收货地址-->
+    <insert id="insert" parameterType="Receiveaddress">
+        insert into receiveaddress(name, address, code, u_id, phone, province, city, county)
+        values (#{name},#{address},#{code},#{uId},#{phone},#{province},#{city},#{county})
+    </insert>
+    <!--显示用户的所有收货地址-->
+    <select id="showByUid" resultType="Receiveaddress">
+        select * from receiveaddress where u_id=#{uId}
+    </select>
+    <!--修改状态，设置为默认地址-->
+    <update id="updateStatus" parameterType="Receiveaddress">
+        update receiveaddress set status=#{status} where id=#{id}
+    </update>
+    <!--通过id获取指定地址-->
+    <select id="findById" resultType="Receiveaddress">
+        select * from receiveaddress where id=#{id}
+    </select>
+    <!--更新收货地址-->
+    <update id="update" parameterType="Receiveaddress">
+        update receiveaddress set name=#{name},address=#{address},code=#{code},phone=#{phone},province=#{province},city=#{city},county=#{county} where id=#{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from receiveaddress where id=#{id}
+    </delete>
+</mapper>

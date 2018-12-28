@@ -1,4 +1,4 @@
-package com.sample;
+package com.wang.domain;
 
 
 public class Shopcar {

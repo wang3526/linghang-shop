@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.ThreeLevelLinkageMapper">
+    <!--获取省-->
+    <select id="getProvinces" resultType="Provinces">
+        select * from provinces;
+    </select>
+    <!--根据省id获取市-->
+    <select id="getCity" resultType="Cities">
+        select * from cities where provinceid=#{provinceid};
+    </select>
+    <!--根据市id获取县区-->
+    <select id="getArea" resultType="Areas">
+        select * from areas where cityid=#{cityid}
+    </select>
+</mapper>

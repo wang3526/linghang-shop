@@ -175,21 +175,18 @@
 										</div>
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
-											<!--<div class="am-form-content address">-->
-											<!--<select data-am-selected>-->
-											<!--<option value="a">浙江省</option>-->
-											<!--<option value="b" selected>湖北省</option>-->
-											<!--</select>-->
-											<!--<select data-am-selected>-->
-											<!--<option value="a">温州市</option>-->
-											<!--<option value="b" selected>武汉市</option>-->
-											<!--</select>-->
-											<!--<select data-am-selected>-->
-											<!--<option value="a">瑞安区</option>-->
-											<!--<option value="b" selected>洪山区</option>-->
-											<!--</select>-->
-											<!--</div>-->
 											<div class="am-form-content address">
+												<select id="ad-pro">
+													<option value="-1">选择省</option>
+												</select>
+												<select id="ad-city">
+													<option value="-1">选择市</option>
+												</select>
+												<select id="ad-area">
+													<option value="-1">选择县区</option>
+												</select>
+											</div>
+											<!--<div class="am-form-content address">
 												<div>
 													<select id="s_province" name="s_province"></select>
 													<select id="s_city" name="s_city"></select>
@@ -211,7 +208,7 @@
                                                         Gid('s_county').value + "</h3>"
                                                 }
                                                 Gid('s_county').setAttribute('onchange', 'showArea()');
-											</script>
+											</script>-->
 											<br><br><br>
 											<label for="user-intro" class="am-form-label">详细地址</label>
 											<div class="am-form-content">
@@ -338,7 +335,6 @@
 			</aside>
 		</div>
 <script src="../myjs/address.js"></script>
-		<script type="text/javascript" src="../myjs/index.js"></script>
 	</body>
 
 </html>
