@@ -63,6 +63,11 @@
         <collection property="list" ofType="Item" autoMapping="true">
         </collection>
     </resultMap>
+    <!--获取更多商品-->
+    <select id="getShowAllItem" resultType="item">
+        select i.c_id,i.id,i.title,i.sell_point,i.price,i.num,i.img_path,i.status from item i,item_category c
+        where i.c_id=c.id and i.status=1 and c.parent_id=#{parentId} order by i.createtime desc limit 0,5
+    </select>
     <!--首页列表一对多-->
     <select id="getListItem" resultType="item">
         select i.c_id,i.id,i.title,i.status from item i,item_category c

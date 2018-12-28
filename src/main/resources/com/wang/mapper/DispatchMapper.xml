@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.DispatchMapper">
+    <!--添加配送费-->
+    <insert id="addDispatch" parameterType="Dispatch">
+        insert into dispatch(way, destination, cost, content) values (#{way},#{destination},#{cost},#{content})
+    </insert>
+    <!--获取配送费列表-->
+    <select id="getList" resultType="Dispatch">
+        <bind name="pro" value="'%'+province+'%'"></bind>
+        <bind name="city1" value="'%'+city+'%'"></bind>
+        <bind name="area1" value="'%'+area+'%'"></bind>
+        select * from dispatch
+        <where>
+            <if test="province!='选择省'">destination like #{pro}</if>
+            <if test="city!='选择市'">and destination like #{city1}</if>
+            <if test="area!='选择县区'">and destination like #{area1}</if>
+            <if test="way!='配送方式'">and way=#{way}</if>
+        </where>
+        limit #{page},#{num}
+    </select>
+    <!--获取-->
+    <select id="getDispatch" resultType="Dispatch">
+        select * from dispatch where id=#{id}
+    </select>
+    <!--修改-->
+    <update id="update" parameterType="Dispatch">
+        update dispatch set way=#{way},cost=#{cost},content=#{content} where id=#{id}
+    </update>
+    <!--验证目的地-->
+    <select id="testDest" resultType="Dispatch">
+        select * from dispatch where destination=#{destination};
+    </select>
+</mapper>

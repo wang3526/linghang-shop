@@ -83,6 +83,11 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
     }
 
     @Override
+    public List<ItemCategory> getShowAllItem(int parentId) {
+        return itemCategoryMapper.getShowAllItem(parentId);
+    }
+
+    @Override
     public List<ItemCategory> getListItem(int id) {
         return itemCategoryMapper.getListItem(id);
     }

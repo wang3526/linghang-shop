@@ -132,6 +132,13 @@ public class ItemCategoryController {
         return JSON.toJSONString(list);
     }
 
+    //获取更多商品
+    @RequestMapping("/getShowAllItem.do")
+    @ResponseBody
+    public String getShowAllItem(int parentId){
+        List<ItemCategory> list=itemCategoryService.getShowAllItem(parentId);
+        return JSON.toJSONString(list);
+    }
     //首页列表
     @RequestMapping("/getListItem.do")
     @ResponseBody

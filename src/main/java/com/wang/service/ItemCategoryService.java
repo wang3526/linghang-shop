@@ -29,6 +29,8 @@ public interface ItemCategoryService {
     public List<ItemCategory> getProAll();
     //一对多查询
     public List<ItemCategory> getShowItem(int parentId);
+    //获取更多商品
+    public List<ItemCategory> getShowAllItem(int parentId);
     //首页列表一对多
     public List<ItemCategory> getListItem(int id);
 }
