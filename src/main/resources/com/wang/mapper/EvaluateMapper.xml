@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.EvaluateMapper">
+    <!--添加评价-->
+    <insert id="addEvaluate" parameterType="Evaluate">
+        insert into evaluate(u_id, context, i_id) values (#{uId},#{context},#{iId})
+    </insert>
+    <!--根据用户id获取评论-->
+    <select id="showByUser" resultType="HashMap">
+        select e.context,e.id,e.create_time,i.img_path,i.title,i.price from evaluate e,item i where e.i_id=i.id and e.u_id=#{uId};
+    </select>
+    <!---->
+    <select id="show" resultType="HashMap">
+        select u.img_path,u.username,e.create_time,e.context from evaluate e,user u where e.u_id=u.id and e.i_id=#{iId};
+    </select>
+</mapper>

@@ -34,4 +34,9 @@
     <select id="testDest" resultType="Dispatch">
         select * from dispatch where destination=#{destination};
     </select>
+    <!--邮费-->
+    <select id="pay" resultType="Dispatch">
+        <bind name="city1" value="'%'+city+'%'"></bind>
+        select * from dispatch where destination like #{city1}
+    </select>
 </mapper>

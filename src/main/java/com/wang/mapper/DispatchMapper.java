@@ -18,4 +18,6 @@ public interface DispatchMapper {
     public void update(Dispatch dispatch);
     //验证目的地
     public Dispatch testDest(String destination);
+    //邮费
+    public Dispatch pay(@Param("city")String city);
 }

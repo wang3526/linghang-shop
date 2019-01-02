@@ -1,32 +1,42 @@
 package com.wang.domain;
 
 
+import java.util.List;
+
 public class Shopcar {
 
-  private long id;
-  private long itemId;
+  private int id;
+  private int itemId;
   private double price;
-  private long num;
-  private long uId;
-  private long status;
+  private int num;
+  private int uId;
+  private int status;
   private String color;
   private String memory;
+  private Item item;
 
+  public Item getItem() {
+    return item;
+  }
 
-  public long getId() {
+  public void setItem(Item item) {
+    this.item = item;
+  }
+
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
 
-  public long getItemId() {
+  public int getItemId() {
     return itemId;
   }
 
-  public void setItemId(long itemId) {
+  public void setItemId(int itemId) {
     this.itemId = itemId;
   }
 
@@ -40,29 +50,29 @@ public class Shopcar {
   }
 
 
-  public long getNum() {
+  public int getNum() {
     return num;
   }
 
-  public void setNum(long num) {
+  public void setNum(int num) {
     this.num = num;
   }
 
 
-  public long getUId() {
+  public int getUId() {
     return uId;
   }
 
-  public void setUId(long uId) {
+  public void setUId(int uId) {
     this.uId = uId;
   }
 
 
-  public long getStatus() {
+  public int getStatus() {
     return status;
   }
 
-  public void setStatus(long status) {
+  public void setStatus(int status) {
     this.status = status;
   }
 

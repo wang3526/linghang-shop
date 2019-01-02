@@ -150,4 +150,15 @@ public class UserController {
         userService.updateStatus(user);
         return JSON.toJSONString("true");
     }
+
+    //根据id获取用户
+    @RequestMapping("/getUserById.do")
+    @ResponseBody
+    public String getUserById(int id){
+        User user=userService.getUserById(id);
+        if(user!=null){
+            return JSON.toJSONString(user);
+        }
+        return JSON.toJSONString("false");
+    }
 }

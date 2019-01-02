@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.ShopcarMapper">
+    <!---->
+    <insert id="addShopcar" parameterType="Shopcar">
+        insert into shopcar(item_id, price, num, u_id, color, memory)values (#{itemId},#{price},#{num},#{uId},#{color},#{memory})
+    </insert>
+    <!---->
+    <select id="getShopcarByUid" resultType="Shopcar">
+        select * from shopcar where u_id=#{uId} and status=0;
+    </select>
+    <!---->
+    <select id="show" resultMap="shopcar">
+        select * from shopcar where u_id=#{uId} and status=0;
+    </select>
+    <resultMap id="shopcar" type="Shopcar" autoMapping="true">
+        <collection property="item" ofType="Item" column="item_id" autoMapping="true" select="select1"></collection>
+    </resultMap>
+    <select id="select1" parameterType="int" resultType="Item">
+        select * from item where id=#{item_id}
+    </select>
+    <!--修改数量-->
+    <update id="updateNum" parameterType="Shopcar">
+        update shopcar set num=#{num} where id=#{id}
+    </update>
+    <!--清空购物车-->
+    <update id="delete">
+        update shopcar set status=1 where u_id=#{uId}
+    </update>
+    <!--删除-->
+    <delete id="deleteOne">
+        delete from shopcar where id=#{id}
+    </delete>
+</mapper>

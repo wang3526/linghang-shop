@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.OrderMapper">
+    <!---->
+    <insert id="addOrder" parameterType="Orders">
+        insert into orders(code,payment,post_fee,user_id,ra_id,buyer_message)
+        values (#{code},#{payment},#{postFee},#{userId},#{raId},#{buyerMessage})
+    </insert>
+    <!--根据订单编号获取订单-->
+    <select id="getOrderByCode" resultType="Orders">
+        select * from orders where code=#{code}
+    </select>
+    <!--根据用户id获取订单   一对多-->
+    <select id="getOrderByUId" resultMap="order">
+        select * from orders where user_id=#{userId} order by create_time desc
+    </select>
+    <resultMap id="order" type="Orders" autoMapping="true">
+        <id column="id" property="id"></id>
+        <collection property="list" ofType="OrderItem" column="id" autoMapping="true" select="select1"></collection>
+    </resultMap>
+    <select id="select1" parameterType="int" resultType="OrderItem">
+        select * from order_item where order_id=#{id}
+    </select>
+    <!--根据用户id和状态获取订单-->
+    <select id="getOrderByUser" resultMap="order">
+        select * from orders where user_id=#{userId} and status=#{status} order by create_time desc
+    </select>
+    <!--修改订单状态-->
+    <update id="pay" parameterType="Orders">
+        update orders set status=#{status},payment_time=#{paymentTime} where code=#{code}
+    </update>
+    <!--关闭订单-->
+    <update id="closeOrder" parameterType="Orders">
+        update orders set status=#{status},close_time=#{closeTime} where code=#{code}
+    </update>
+    <!--收货-->
+    <update id="receiptStatus" parameterType="Orders">
+        update orders set status=#{status},rec_time=#{recTime} where code=#{code}
+    </update>
+    <!--申请退款-->
+    <update id="refundOrder" parameterType="Orders">
+        update orders set status=#{status},ret_time=#{retTime} where code=#{code}
+    </update>
+    <!--根据订单编号获取订单-->
+    <select id="getOrderItemByCode" resultMap="order">
+        select * from orders where code=#{code}
+    </select>
+    <!--多条件查询-->
+    <select id="getOrderAll" resultType="HashMap">
+        <bind name="name" value="'%'+keyword+'%'"></bind>
+        select o.create_time,o.id,o.code,o.status,r.name,r.phone from orders o,receiveaddress r
+        <where>
+            o.ra_id=r.id
+            <if test="type==1">and r.name like #{name}</if>
+            <if test="type==2">and r.phone=#{keyword}</if>
+            <if test="type==3">and o.code=#{keyword}</if>
+            <if test="status!=0">and o.status=#{status}</if>
+        </where>
+        order by o.create_time desc limit #{page},#{num}
+    </select>
+    <!--发货-->
+    <update id="updateShippingCode" parameterType="Orders">
+        update orders set status=#{status},shipping_name=#{shippingName},shipping_code=#{shippingCode},consign_time=#{consignTime} where code=#{code}
+    </update>
+    <!--退款成功-->
+    <update id="refundSuccess" parameterType="Orders">
+        update orders set status=#{status},sret_time=#{sretTime} where code=#{code}
+    </update>
+</mapper>

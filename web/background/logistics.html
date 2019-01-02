@@ -69,10 +69,9 @@
         return null;
     }
     function addCode() {
-        var t_id=GetQueryString("t_id");
-        var o_id=GetQueryString("o_id");
-        $.get(path+"/order/updateCode.do",
-            {"t_id":t_id,"o_id":o_id,"code":$("#code").val(),"name":$("#name").val()},
+        var code=GetQueryString("code");
+        $.get(path+"/order/updateShippingCode.do",
+            {"code":code,"shippingCode":$("#code").val(),"shippingName":$("#name").val()},
             function (data) {
                 if(data=="true"){
                     window.location.href="order-list.html";

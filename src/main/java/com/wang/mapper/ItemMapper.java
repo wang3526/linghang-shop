@@ -29,4 +29,6 @@ public interface ItemMapper {
     public Item getItemById(int id);
     //根据id获取同类商品
     public List<Item> getCateItemById(int id);
+    //获取商品
+    public Item selectOneItem(int id);
 }

@@ -108,6 +108,11 @@ public class UserServiceImpl implements UserService {
         userMapper.updateStatus(user);
     }
 
+    @Override
+    public User getUserById(int id) {
+        return userMapper.getUserById(id);
+    }
+
     public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;
     }

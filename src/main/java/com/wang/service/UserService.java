@@ -31,4 +31,6 @@ public interface UserService {
     public List<User> findUserByKey(String keywords,int pageNo,int pageSize);
     //修改状态
     public void updateStatus(User user);
+    //根据id获取用户
+    public User getUserById(int id);
 }

@@ -30,4 +30,6 @@ public interface UserMapper {
     public List<User> findUserByKey(@Param("keyword")String keywords,@Param("pageNo")int pageNo,@Param("pageSize")int pageSize);
     //修改状态
     public void updateStatus(User user);
+    //根据id获取用户
+    public User getUserById(int id);
 }

@@ -64,4 +64,8 @@
     <select id="getCateItemById" resultType="Item">
         select * from item where c_id in (select c_id from item where id=#{id}) and id!=#{id} limit 0,5
     </select>
+    <!---->
+    <select id="selectOneItem" resultType="Item">
+        select * from item where id=#{id}
+    </select>
 </mapper>
