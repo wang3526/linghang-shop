@@ -197,3 +197,8 @@ function toEdit(id) {
         $("#user-intro").val(data.address);
     }, "json");
 }
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="../home/search.html?keyword="+encodeURI(encodeURI(keyword));
+})

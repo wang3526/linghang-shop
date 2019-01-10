@@ -39,6 +39,7 @@ public class OrderItemServiceImpl implements OrderItemService {
             orderItem.setColor(list.get(i).getColor());
             orderItem.setMemory(list.get(i).getMemory());
             orderItemMapper.addOrderItem(orderItem);
+            itemMapper.reduceNum(list.get(i).getItemId(),list.get(i).getNum());
         }
         shopcarMapper.delete(userId);
     }

@@ -2,6 +2,7 @@ package com.wang.service;
 
 import com.wang.domain.ItemSpecification;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface ItemSpecificationService {
@@ -15,4 +16,6 @@ public interface ItemSpecificationService {
     public ItemSpecification getSpecificationById(int id);
     //修改
     public void editSpecification(ItemSpecification itemSpecification);
+    //查询商品
+    public List<HashMap<String,Object>> getItem(ItemSpecification itemSpecification);
 }

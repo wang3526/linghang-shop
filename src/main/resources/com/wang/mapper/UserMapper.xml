@@ -64,4 +64,8 @@
     <select id="getUserById" resultType="User">
         select * from user where id=#{id};
     </select>
+    <!--保存手机号-->
+    <update id="updatePhone">
+        update user set phone=#{phone} where username=#{username}
+    </update>
 </mapper>

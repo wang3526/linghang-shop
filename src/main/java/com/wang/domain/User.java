@@ -11,7 +11,6 @@ public class User {
   private String phone;
   private String email;
   private int sex;
-  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private java.sql.Date birthday;
   private String name;
   private int status;

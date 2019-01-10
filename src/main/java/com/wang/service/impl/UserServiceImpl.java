@@ -113,6 +113,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.getUserById(id);
     }
 
+    @Override
+    public void updatePhone(String phone, String code, HttpSession session) {
+        String username=(String)session.getAttribute("username");
+        String phoneCOde=(String)session.getAttribute("phoneCOde");
+        if(code.equals(phoneCOde)){
+            userMapper.updatePhone(phone,username);
+        }
+    }
+
     public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;
     }

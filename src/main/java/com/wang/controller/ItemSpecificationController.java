@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -64,6 +65,14 @@ public class ItemSpecificationController {
     public String editSpecification(ItemSpecification itemSpecification){
         itemSpecificationService.editSpecification(itemSpecification);
         return JSON.toJSONString("true");
+    }
+
+    //查询商品
+    @RequestMapping("/getItem.do")
+    @ResponseBody
+    public String getItem(ItemSpecification itemSpecification){
+        List<HashMap<String,Object>> list=itemSpecificationService.getItem(itemSpecification);
+        return JSON.toJSONString(list);
     }
     public void setItemSpecificationService(ItemSpecificationService itemSpecificationService) {
         this.itemSpecificationService = itemSpecificationService;

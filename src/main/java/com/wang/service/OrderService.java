@@ -2,6 +2,7 @@ package com.wang.service;
 
 import com.wang.domain.Orders;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,4 +31,8 @@ public interface OrderService {
     public void updateShippingCode(Orders orders);
     //退款成功
     public void refundSuccess(Orders orders);
+    //付款成功，获取信息
+    public HashMap<String,String> showOne(String code);
+    //获取退款订单
+    public List<Orders> getRefundOrder(HttpSession session);
 }

@@ -19,13 +19,18 @@ $(function () {
 
 $("#J_Go").click(function () {
     var code=GetQueryString("code");
-    $.get(path+"/order/pay.do",function (data) {
+    $.get(path+"/order/pay.do",{"code":code},function (data) {
         console.log(data);
         $("#pay-page").append(data);
-        /*if(data=="true"){
-            window.location.href="success.html";
+        if(data=="true"){
+            window.location.href="success.html?code="+code;
         }else {
             alert("支付失败！");
-        }*/
-    },"html")
+        }
+    },"json")
+})
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="search.html?keyword="+encodeURI(encodeURI(keyword));
 })

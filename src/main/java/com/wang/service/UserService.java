@@ -3,6 +3,7 @@ package com.wang.service;
 import com.wang.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -33,4 +34,6 @@ public interface UserService {
     public void updateStatus(User user);
     //根据id获取用户
     public User getUserById(int id);
+    //保存手机号
+    public void updatePhone(String phone, String code, HttpSession session);
 }

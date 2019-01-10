@@ -249,3 +249,8 @@ $("#J_Go").click(function () {
             window.location.href="payway.html?code="+data;
     },"json")
 });
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="search.html?keyword="+encodeURI(encodeURI(keyword));
+})

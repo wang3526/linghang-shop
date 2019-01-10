@@ -10,10 +10,29 @@
     </insert>
     <!--根据用户id获取评论-->
     <select id="showByUser" resultType="HashMap">
-        select e.context,e.id,e.create_time,i.img_path,i.title,i.price from evaluate e,item i where e.i_id=i.id and e.u_id=#{uId};
+        select e.context,e.id,e.create_time,i.img_path,i.title,i.price from evaluate e,item i where e.i_id=i.id and e.status=0 and e.u_id=#{uId};
     </select>
     <!---->
     <select id="show" resultType="HashMap">
-        select u.img_path,u.username,e.create_time,e.context from evaluate e,user u where e.u_id=u.id and e.i_id=#{iId};
+        select u.img_path,u.username,e.create_time,e.context from evaluate e,user u where e.u_id=u.id and e.status=0 and e.i_id=#{iId};
     </select>
+    <!---->
+    <select id="getEvaluate" resultType="HashMap">
+        <bind name="name" value="'%'+username+'%'"></bind>
+        select e.id,e.u_id,e.context,e.create_time,e.status,e.i_id,i.img_path,i.title,u.id,u.name
+        from evaluate e left join user u on e.u_id=u.id left join item i on e.i_id=i.id
+        <where>
+            <if test="datemin!='' and datemax!=''">e.create_time between #{datemin} and DATE_ADD(#{datemax},INTERVAL 1 DAY)</if>
+            <if test="username!=''">and u.name like #{name}</if>
+        </where>
+        limit #{page},#{size}
+    </select>
+    <!--修改状态-->
+    <update id="updateStatus" parameterType="Evaluate">
+        update evaluate set status=#{status} where id=#{id}
+    </update>
+    <!--删除-->
+    <delete id="delete">
+        delete from evaluate where id=#{id}
+    </delete>
 </mapper>

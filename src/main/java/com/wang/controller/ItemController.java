@@ -151,6 +151,18 @@ public class ItemController {
         List<Item> list=itemService.getCateItemById(id);
         return JSON.toJSONString(list);
     }
+
+    //根据手机品牌模糊查询
+    @RequestMapping("/getItemByName.do")
+    @ResponseBody
+    public String getItemByName(String keyword){
+        List<Item> list=itemService.getItemByName(keyword);
+        if(list!=null&&list.size()>0){
+            return JSON.toJSONString(list);
+        }
+        return JSON.toJSONString("false");
+    }
+
     public void setItemService(ItemService itemService) {
         this.itemService = itemService;
     }

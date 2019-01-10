@@ -69,4 +69,12 @@
     <update id="refundSuccess" parameterType="Orders">
         update orders set status=#{status},sret_time=#{sretTime} where code=#{code}
     </update>
+    <!---->
+    <select id="showOne" resultType="HashMap">
+        select o.payment,r.name,r.phone,r.province,r.county,r.city,r.address from orders o,receiveaddress r where o.ra_id=r.id and o.code=#{code}
+    </select>
+    <!--获取退款订单-->
+    <select id="getRefundOrder" resultMap="order">
+        select * from orders where user_id=#{userId} and status in(5,6) order by create_time desc
+    </select>
 </mapper>

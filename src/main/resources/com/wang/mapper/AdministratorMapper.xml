@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.AdministratorMapper">
+    <!--验证用户名是否存在-->
+    <select id="testName" resultType="Administrator">
+        select * from administrator where name=#{name};
+    </select>
+    <!--登录-->
+    <select id="login" resultType="Administrator">
+        select * from administrator where name=#{name} and password=#{password};
+    </select>
+    <!--根据用户名获取密码-->
+    <select id="getPassword" resultType="String">
+        select password from administrator where name=#{name}
+    </select>
+    <!--修改密码-->
+    <update id="update" parameterType="Administrator">
+        update administrator set password=#{password} where name=#{name}
+    </update>
+</mapper>

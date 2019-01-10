@@ -35,16 +35,16 @@
 						</ul>
 						<ul class="message-r">
 							<div class="topMessage home">
-								<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+								<div class="menu-hd"><a href="../home/home.html" target="_top" class="h">商城首页</a></div>
 							</div>
 							<div class="topMessage my-shangcheng">
-								<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+								<div class="menu-hd MyShangcheng"><a href="index.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 							</div>
 							<div class="topMessage mini-cart">
-								<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+								<div class="menu-hd"><a id="mc-menu-hd" href="../home/shopcart.html" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 							</div>
-							<div class="topMessage favorite">
-								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+							<!--<div class="topMessage favorite">
+								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>-->
 						</ul>
 						</div>
 
@@ -73,11 +73,11 @@
 					   <div class="long-title"><span class="all-goods">全部分类</span></div>
 					   <div class="nav-cont">
 							<ul>
-								<li class="index"><a href="#">首页</a></li>
-                                <li class="qc"><a href="#">闪购</a></li>
+								<li class="index"><a style="width: 200px" href="../home/home.html">首页</a></li>
+                                <!--<li class="qc"><a href="#">闪购</a></li>
                                 <li class="qc"><a href="#">限时抢</a></li>
                                 <li class="qc"><a href="#">团购</a></li>
-                                <li class="qc last"><a href="#">大包装</a></li>
+                                <li class="qc last"><a href="#">大包装</a></li>-->
 							</ul>
 						    <div class="nav-extra">
 						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
@@ -114,40 +114,28 @@
 						</div>
 					</div>
 					<form class="am-form am-form-horizontal">
-						<!--<div class="am-form-group bind">
-							<label for="user-phone" class="am-form-label">验证手机</label>
-							<div class="am-form-content">
-								<span id="user-phone">186XXXX0531</span>
-							</div>
-						</div>
-						<div class="am-form-group code">
-							<label for="user-code" class="am-form-label">验证码</label>
-							<div class="am-form-content">
-								<input type="tel" id="user-code" placeholder="短信验证码">
-							</div>
-							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<div class="am-btn am-btn-danger">验证码</div>
-							</a>
-						</div>-->
 						<div class="am-form-group">
 							<label for="user-new-phone" class="am-form-label">手机号</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-new-phone" placeholder="绑定手机号">
+								<input type="tel" id="user-new-phone" placeholder="绑定手机号" onblur="phone()">
+								<span id="span"></span>
 							</div>
 						</div>
 						<div class="am-form-group code">
 							<label for="user-new-code" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-new-code" placeholder="短信验证码">
+								<input type="tel" id="user-new-code" style="width: 415px" onblur="code()" placeholder="短信验证码">
 							</div>
-							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<div class="am-btn am-btn-danger">验证码</div>
+							<a id="sendMobileCode" class="btn" href="javascript:void(0);">
+								<div class="am-btn am-btn-danger"  style="width: 100px">获取验证码</div>
 							</a>
+							<a id="secondShow" class="btn" href="javascript:;"></a>
+							<span id="span1" style="margin-left: 85px"></span>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存</div>
+							<div id="submit" class="am-btn am-btn-danger">保存</div>
+							<span id="span2"></span>
 						</div>
-
 					</form>
 
 				</div>
@@ -155,22 +143,17 @@
 				<div class="footer">
 					<div class="footer-hd">
 						<p>
-							<a href="#">恒望科技</a>
+							<a href="# ">领航手机商城</a>
 							<b>|</b>
-							<a href="#">商城首页</a>
-							<b>|</b>
-							<a href="#">支付宝</a>
-							<b>|</b>
-							<a href="#">物流</a>
+							<a href="# ">商城首页</a>
 						</p>
 					</div>
 					<div class="footer-bd">
 						<p>
-							<a href="#">关于恒望</a>
-							<a href="#">合作伙伴</a>
-							<a href="#">联系我们</a>
-							<a href="#">网站地图</a>
-							<em>© 2015-2025 Hengwang.com 版权所有</em>
+							<a href="# ">关于领航</a>
+							<a href="# ">合作伙伴</a>
+							<a href="# ">联系我们</a>
+							<em>© 2018-2025 navigation.com 版权所有</em>
 						</p>
 					</div>
 				</div>
@@ -187,7 +170,7 @@
 							<li> <a href="information.html">个人信息</a></li>
 							<li> <a href="safety.html">安全设置</a></li>
 							<li> <a href="address.html">地址管理</a></li>
-							<li> <a href="cardlist.html">快捷支付</a></li>
+							<!--<li> <a href="cardlist.html">快捷支付</a></li>-->
 						</ul>
 					</li>
 					<li class="person">
@@ -198,16 +181,16 @@
 							<li> <a href="comment.html">评价商品</a></li>
 						</ul>
 					</li>
-					<li class="person">
+					<!--<li class="person">
 						<p><i class="am-icon-dollar"></i>我的资产</p>
 						<ul>
-							<!--<li> <a href="points.html">我的积分</a></li>
+							&lt;!&ndash;<li> <a href="points.html">我的积分</a></li>
 							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>-->
+							<li> <a href="bonus.html">红包</a></li>&ndash;&gt;
 							<li> <a href="walletlist.html">账户余额</a></li>
 							<li> <a href="bill.html">账单明细</a></li>
 						</ul>
-					</li>
+					</li>-->
 
 					<!--<li class="person">
 						<p><i class="am-icon-tags"></i>我的收藏</p>
@@ -217,7 +200,7 @@
 						</ul>
 					</li>-->
 
-					<li class="person">
+					<!--<li class="person">
 						<p><i class="am-icon-qq"></i>在线客服</p>
 						<ul>
 							<li> <a href="consultation.html">商品咨询</a></li>
@@ -225,12 +208,12 @@
 							
 							<li> <a href="news.html">我的消息</a></li>
 						</ul>
-					</li>
+					</li>-->
 				</ul>
 
 			</aside>
 		</div>
 
 	</body>
-
+<script src="../myjs/bindphone.js"></script>
 </html>

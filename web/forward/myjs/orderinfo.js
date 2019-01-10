@@ -218,3 +218,8 @@ function closeOrder(code) {
             }
         },"json");
 }
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="../home/search.html?keyword="+encodeURI(encodeURI(keyword));
+})

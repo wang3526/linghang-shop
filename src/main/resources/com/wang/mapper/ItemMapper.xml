@@ -64,8 +64,17 @@
     <select id="getCateItemById" resultType="Item">
         select * from item where c_id in (select c_id from item where id=#{id}) and id!=#{id} limit 0,5
     </select>
-    <!---->
+    <!--获取商品-->
     <select id="selectOneItem" resultType="Item">
         select * from item where id=#{id}
     </select>
+    <!--根据手机品牌模糊查询-->
+    <select id="getItemByName" resultType="Item">
+        <bind name="sell" value="'%'+keyword+'%'"></bind>
+        select * from item where sell_point like #{sell}
+    </select>
+    <!--减少数量-->
+    <update id="reduceNum">
+        update item set num=(num-#{num}) where id=#{id}
+    </update>
 </mapper>

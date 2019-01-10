@@ -21,7 +21,7 @@ function getShow(parentId,name,tmp) {
                 '\t\t\t\t\t\t\t\t\t\t<h4 class="floor-title">'+name+'</h4>\n' +
                 '\t\t\t\t\t\t\t\t\t\t\t<div class="floor-subtitle"></div>\n' +
                 '\t\t\t\t\t\t\t\t\t\t\t<div class="today-brands " style="right:0px ;top:13px;">\n' +
-                '\t\t\t\t\t\t\t\t\t\t\t\t<a href="search.html?id='+parentId+'">更多>></a>\n' +
+                '\t\t\t\t\t\t\t\t\t\t\t\t<a href="search.html?id='+parentId+'&name='+encodeURI(encodeURI(name))+'">更多>></a>\n' +
                 '\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
                 '\t\t\t\t\t\t\t\t\t\t</div>\n' +
                 '\t\t\t\t\t\t\t\t</div>' +
@@ -40,7 +40,7 @@ function getShow(parentId,name,tmp) {
                 '                                <div class="sub-title" style="color: red;font-size: 20px">\n￥' +mode.price+
                 '                                </div>\n' +
                 '                            </div>\n' +
-                '                            <a href="introduction.html?id='+mode.id+'"><img style="width: 180px;height: 230px;" src='+path+mode.imgPath+' /></a>\n' +
+                '                            <a href="introduction.html?id='+mode.id+'"><img style="width: 200px;height: 230px;" src='+path+mode.imgPath+' /></a>\n' +
                 '                        </div>\n' +
                 '                    </li>');
         }
@@ -104,4 +104,9 @@ $(function () {
             $("#h-banner0_clone").append('<a href="introduction.html?id='+data[0].iId+'"><img src="'+path+data[0].imgPath+'" style="width: 1010px;height: 440px"/></a>');
         }
     },"json")
+})
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="search.html?keyword="+encodeURI(encodeURI(keyword));
 })

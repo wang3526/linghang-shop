@@ -1,12 +1,15 @@
 package com.wang.service.impl;
 
 import com.wang.domain.Orders;
+import com.wang.domain.User;
 import com.wang.mapper.OrderMapper;
+import com.wang.mapper.UserMapper;
 import com.wang.service.OrderItemService;
 import com.wang.service.OrderService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +23,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     private OrderItemService orderItemService;
+
+    @Resource
+    private UserMapper userMapper;
 
     @Override
     public void addOrder(Orders order) {
@@ -117,6 +123,18 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.refundSuccess(orders);
     }
 
+    @Override
+    public HashMap<String, String> showOne(String code) {
+        return orderMapper.showOne(code);
+    }
+
+    @Override
+    public List<Orders> getRefundOrder(HttpSession session) {
+        String username=(String)session.getAttribute("username");
+        User user=userMapper.getUser(username);
+        return orderMapper.getRefundOrder(user.getId());
+    }
+
 
     public void setOrderItemService(OrderItemService orderItemService) {
         this.orderItemService = orderItemService;
@@ -124,5 +142,9 @@ public class OrderServiceImpl implements OrderService {
 
     public void setOrderMapper(OrderMapper orderMapper) {
         this.orderMapper = orderMapper;
+    }
+
+    public void setUserMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
 }

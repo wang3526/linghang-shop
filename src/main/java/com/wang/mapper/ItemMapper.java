@@ -31,4 +31,8 @@ public interface ItemMapper {
     public List<Item> getCateItemById(int id);
     //获取商品
     public Item selectOneItem(int id);
+    //根据手机品牌模糊查询
+    public List<Item> getItemByName(@Param("keyword")String keyword);
+    //减少数量
+    public void reduceNum(@Param("id")int id,@Param("num")int num);
 }

@@ -34,4 +34,17 @@
         network_type=#{networkType}, network_mode=#{networkMode}, style=#{style}, keyboard_type=#{keyboardType}, storage_capacity=#{storageCapacity}, run_memory=#{runMemory}, operating_system=#{operatingSystem},
         phone_type=#{phoneType}, battery_type=#{batteryType},item_brand=#{itemBrand}, model=#{model}, cpu_brand=#{cpuBrand}, core_number=#{coreNumber}, product_name=#{productName}, fuselage_color=#{fuselageColor} where id=#{id}
     </update>
+    <!--查询商品-->
+    <select id="getItem" resultType="HashMap">
+        <bind name="brand" value="'%'+itemBrand+'%'"></bind>
+        <bind name="type" value="'%'+phoneType+'%'"></bind>
+        <bind name="capacity" value="'%'+storageCapacity+'%'"></bind>
+        select s.i_id,i.id,s.item_brand,s.phone_type,s.storage_capacity,i.img_path,i.sell_point,i.price from item_specification s,item i
+        <where>
+            s.i_id=i.id
+            <if test="itemBrand!='全部'">and s.item_brand like #{brand}</if>
+            <if test="phoneType!='全部'">and s.phone_type like #{type}</if>
+            <if test="storageCapacity!='全部'">and s.storage_capacity like #{capacity}</if>
+        </where>
+    </select>
 </mapper>

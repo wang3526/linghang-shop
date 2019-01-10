@@ -4,6 +4,7 @@ import com.wang.domain.ItemSpecification;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -18,4 +19,6 @@ public interface ItemSpecificationMapper {
     public ItemSpecification getSpecificationById(int id);
     //修改
     public void editSpecification(ItemSpecification itemSpecification);
+    //查询商品
+    public List<HashMap<String,Object>> getItem(ItemSpecification itemSpecification);
 }

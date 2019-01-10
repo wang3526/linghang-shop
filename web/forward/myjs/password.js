@@ -97,3 +97,9 @@ function rpass() {
         return false;
     }
 }
+
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="../home/search.html?keyword="+encodeURI(encodeURI(keyword));
+})

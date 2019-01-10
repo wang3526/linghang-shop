@@ -76,4 +76,9 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> getCateItemById(int id) {
         return itemMapper.getCateItemById(id);
     }
+
+    @Override
+    public List<Item> getItemByName(String keyword) {
+        return itemMapper.getItemByName(keyword);
+    }
 }

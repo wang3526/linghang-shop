@@ -32,4 +32,6 @@ public interface UserMapper {
     public void updateStatus(User user);
     //根据id获取用户
     public User getUserById(int id);
+    //保存手机号
+    public void updatePhone(@Param("phone")String phone,@Param("username")String username);
 }

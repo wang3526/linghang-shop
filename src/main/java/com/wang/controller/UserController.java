@@ -3,6 +3,7 @@ package com.wang.controller;
 import com.alibaba.fastjson.JSON;
 import com.wang.domain.User;
 import com.wang.service.UserService;
+import com.wang.util.SendTemplateSMSUtil;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -160,5 +161,24 @@ public class UserController {
             return JSON.toJSONString(user);
         }
         return JSON.toJSONString("false");
+    }
+
+    //发送短信验证码
+    @RequestMapping("/sendCode.do")
+    @ResponseBody
+    public String sendCode(String phone,HttpSession session){
+        int code=(int)(1000+Math.random()*(9999-1000+1));
+        String phoneCode=String.valueOf(code);
+        session.setAttribute("phoneCOde",phoneCode);
+        String status=SendTemplateSMSUtil.send(phone,phoneCode);
+        return status;
+    }
+
+    //保存手机号
+    @RequestMapping("/updatePhone.do")
+    @ResponseBody
+    public String updatePhone(String phone,String code,HttpSession session){
+        userService.updatePhone(phone,code,session);
+        return JSON.toJSONString("true");
     }
 }

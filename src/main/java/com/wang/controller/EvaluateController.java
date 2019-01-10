@@ -50,6 +50,30 @@ public class EvaluateController {
         return JSON.toJSONString(list, SerializerFeature.DisableCircularReferenceDetect);
     }
 
+    @RequestMapping("/getEvaluate.do")
+    @ResponseBody
+    public String getEvaluate(String datemin,String datemax,String username,int page,int size){
+        page=(page-1)*size;
+        List<HashMap<String,String>> list=evaluateService.getEvaluate(datemin, datemax, username, page, size);
+        return JSON.toJSONString(list);
+    }
+
+    //修改状态
+    @RequestMapping("/updateStatus.do")
+    @ResponseBody
+    public String updateStatus(Evaluate evaluate){
+        evaluateService.updateStatus(evaluate);
+        return JSON.toJSONString("true");
+    }
+
+    //删除
+    @RequestMapping("/delete.do")
+    @ResponseBody
+    public String delete(int id){
+        evaluateService.delete(id);
+        return JSON.toJSONString("true");
+    }
+
     public void setEvaluateService(EvaluateService evaluateService) {
         this.evaluateService = evaluateService;
     }

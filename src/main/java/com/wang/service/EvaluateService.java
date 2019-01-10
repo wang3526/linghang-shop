@@ -12,4 +12,10 @@ public interface EvaluateService {
     public List<HashMap<String,Object>> showByUser(int uId);
     //
     public List<HashMap<String,Object>> show(int iId);
+    //
+    public List<HashMap<String,String>> getEvaluate(String datemin,String datemax,String username,int page,int size);
+    //修改状态
+    public void updateStatus(Evaluate evaluate);
+    //删除
+    public void delete(int id);
 }

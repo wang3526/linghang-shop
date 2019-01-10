@@ -32,4 +32,19 @@ public class EvaluateServiceImpl implements EvaluateService {
     public List<HashMap<String, Object>> show(int iId) {
         return evaluateMapper.show(iId);
     }
+
+    @Override
+    public List<HashMap<String, String>> getEvaluate(String datemin, String datemax, String username, int page, int size) {
+        return evaluateMapper.getEvaluate(datemin, datemax, username, page, size);
+    }
+
+    @Override
+    public void updateStatus(Evaluate evaluate) {
+        evaluateMapper.updateStatus(evaluate);
+    }
+
+    @Override
+    public void delete(int id) {
+        evaluateMapper.delete(id);
+    }
 }

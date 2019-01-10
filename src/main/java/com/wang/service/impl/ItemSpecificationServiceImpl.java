@@ -6,6 +6,7 @@ import com.wang.service.ItemSpecificationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -43,5 +44,10 @@ public class ItemSpecificationServiceImpl implements ItemSpecificationService {
     @Override
     public void editSpecification(ItemSpecification itemSpecification) {
         itemSpecificationMapper.editSpecification(itemSpecification);
+    }
+
+    @Override
+    public List<HashMap<String, Object>> getItem(ItemSpecification itemSpecification) {
+        return itemSpecificationMapper.getItem(itemSpecification);
     }
 }

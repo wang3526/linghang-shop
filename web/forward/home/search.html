@@ -32,16 +32,16 @@
 			</ul>
 			<ul class="message-r">
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+					<div class="menu-hd"><a href="home.html" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+					<div class="menu-hd MyShangcheng"><a href="../person/index.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
-					<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+					<div class="menu-hd"><a id="mc-menu-hd" href="shopcart.html" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 				</div>
-				<div class="topMessage favorite">
-					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+				<!--<div class="topMessage favorite">
+					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>-->
 			</ul>
 			</div>
 
@@ -57,7 +57,7 @@
 					<a name="index_none_header_sysc" href="#"></a>
 					<form>
 						<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-						<input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="submit">
+						<input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="button">
 					</form>
 				</div>
 			</div>
@@ -70,11 +70,11 @@
 					   <div class="long-title"><span class="all-goods">全部分类</span></div>
 					   <div class="nav-cont">
 							<ul>
-								<li class="index"><a href="#">首页</a></li>
-                                <li class="qc"><a href="#">闪购</a></li>
+								<li class="index" style="width: 200px"><a href="home.html">首页</a></li>
+                               <!-- <li class="qc"><a href="#">闪购</a></li>
                                 <li class="qc"><a href="#">限时抢</a></li>
                                 <li class="qc"><a href="#">团购</a></li>
-                                <li class="qc last"><a href="#">大包装</a></li>
+                                <li class="qc last"><a href="#">大包装</a></li>-->
 							</ul>
 						    <div class="nav-extra">
 						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
@@ -88,20 +88,16 @@
 						<div class="am-u-sm-12 am-u-md-12">
 	                  	<div class="theme-popover">														
 							<div class="searchAbout">
-								<span class="font-pale">相关搜索：</span>
-								<a title="坚果" href="#">坚果</a>
-								<a title="瓜子" href="#">瓜子</a>
-								<a title="鸡腿" href="#">豆干</a>
-
-							</div>
+							<span class="font-pale">所有分类></span>
+						</div>
 							<ul class="select">
-								<p class="title font-normal">
+								<!--<p class="title font-normal">
 									<span class="fl">松子</span>
 									<span class="total fl">搜索到<strong class="num">997</strong>件相关商品</span>
-								</p>
+								</p>-->
 								<div class="clear"></div>
 								<li class="select-result">
-									<dl>
+									<dl id="select-brand">
 										<dt>已选</dt>
 										<dd class="select-no"></dd>
 										<p class="eliminateCriteria">清除</p>
@@ -112,39 +108,45 @@
 									<dl id="select1">
 										<dt class="am-badge am-round">品牌</dt>	
 									
-										 <div class="dd-conent">										
-											<dd class="select-all selected"><a href="#">全部</a></dd>
-											<dd><a href="#">百草味</a></dd>
+										 <div class="dd-conent" id="search-brand">
+											<dd id="brand-all" class="select-all selected"></dd>
+
+											<!--<dd><a href="#">百草味</a></dd>
 											<dd><a href="#">良品铺子</a></dd>
 											<dd><a href="#">新农哥</a></dd>
 											<dd><a href="#">楼兰蜜语</a></dd>
-											<dd><a href="#">口水娃</a></dd>
-											<dd><a href="#">考拉兄弟</a></dd>
+											<dd id="end"><a href="#">口水娃</a></dd>
+											<dd><a href="#">考拉兄弟</a></dd>-->
 										 </div>
 						
 									</dl>
 								</li>
 								<li class="select-list">
 									<dl id="select2">
-										<dt class="am-badge am-round">种类</dt>
+										<dt class="am-badge am-round">手机类型</dt>
 										<div class="dd-conent">
-											<dd class="select-all selected"><a href="#">全部</a></dd>
-											<dd><a href="#">东北松子</a></dd>
-											<dd><a href="#">巴西松子</a></dd>
-											<dd><a href="#">夏威夷果</a></dd>
-											<dd><a href="#">松子</a></dd>
+											<dd class="select-all selected"><a style="cursor: pointer" onclick="select(this)">全部</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">智能手机</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">拍照手机</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">时尚手机</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">音乐手机</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">商务手机</a></dd>
 										</div>
 									</dl>
 								</li>
 								<li class="select-list">
 									<dl id="select3">
-										<dt class="am-badge am-round">选购热点</dt>
+										<dt class="am-badge am-round">机身内存ROM</dt>
 										<div class="dd-conent">
-											<dd class="select-all selected"><a href="#">全部</a></dd>
-											<dd><a href="#">手剥松子</a></dd>
+											<dd class="select-all selected"><a style="cursor: pointer" onclick="select(this)">全部</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">32GB</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">64GB</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">128GB</a></dd>
+											<dd><a style="cursor: pointer" onclick="select(this)">256GB</a></dd>
+											<!--<dd><a href="#">手剥松子</a></dd>
 											<dd><a href="#">薄壳松子</a></dd>
 											<dd><a href="#">进口零食</a></dd>
-											<dd><a href="#">有机零食</a></dd>
+											<dd><a href="#">有机零食</a></dd>-->
 										</div>
 									</dl>
 								</li>
@@ -161,7 +163,7 @@
 								</div>
 								<div class="clear"></div>
 
-								<ul id="item-all" class="am-avg-lg-4">
+								<ul id="item-all" class="am-avg-lg-5">
 									<!--<li>
 										<div class="i-pic limit">
 											<img src="../images/imgsearch1.jpg" />											
@@ -379,38 +381,33 @@
 
 							</div>-->
 							<div class="clear"></div>
-							<!--分页 -->
-							<ul class="am-pagination am-pagination-right">
-								<li class="am-disabled"><a href="#">&laquo;</a></li>
-								<li class="am-active"><a href="#">1</a></li>
+							<!--分页-->
+							<!--<ul class="am-pagination am-pagination-right">
+								<li class="am-disabled"><a id="pro" style="cursor: pointer">上一页</a></li>
+							&lt;!&ndash;	<li class="am-active"><a href="#">1</a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
+								<li><a href="#">5</a></li>&ndash;&gt;
+								<li><a id="next" style="cursor: pointer">下一页</a></li>
+							</ul>-->
 
 						</div>
 					</div>
 					<div class="footer">
 						<div class="footer-hd">
 							<p>
-								<a href="#">恒望科技</a>
+								<a href="# ">领航手机商城</a>
 								<b>|</b>
-								<a href="#">商城首页</a>
-								<b>|</b>
-								<a href="#">支付宝</a>
-								<b>|</b>
-								<a href="#">物流</a>
+								<a href="# ">商城首页</a>
 							</p>
 						</div>
 						<div class="footer-bd">
 							<p>
-								<a href="#">关于恒望</a>
-								<a href="#">合作伙伴</a>
-								<a href="#">联系我们</a>
-								<a href="#">网站地图</a>
-								<em>© 2015-2025 Hengwang.com 版权所有</em>
+								<a href="# ">关于领航</a>
+								<a href="# ">合作伙伴</a>
+								<a href="# ">联系我们</a>
+								<em>© 2018-2025 navigation.com 版权所有</em>
 							</p>
 						</div>
 					</div>

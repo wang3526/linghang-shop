@@ -105,3 +105,8 @@ function toDelete(id){
 $("#J_Go").click(function () {
     window.location.href="pay.html";
 });
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="search.html?keyword="+encodeURI(encodeURI(keyword));
+})

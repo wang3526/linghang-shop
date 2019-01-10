@@ -6,7 +6,7 @@ import com.wang.domain.User;
 import com.wang.service.OrderService;
 import com.wang.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,10 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequestMapping("/order")
@@ -84,7 +81,7 @@ public class OrderController {
     //支付
     @RequestMapping("/pay.do")
     @ResponseBody
-    public String pay(Orders orders){
+    public String pay(Orders orders) throws Exception{
         Date date=new Date();
         SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormat.format(date);
@@ -154,6 +151,22 @@ public class OrderController {
     public String refundSuccess(Orders orders){
         orderService.refundSuccess(orders);
         return JSON.toJSONString("true");
+    }
+
+    //付款成功，获取信息
+    @RequestMapping("/showOne.do")
+    @ResponseBody
+    public String showOne(String code){
+        HashMap<String,String> map=orderService.showOne(code);
+        return JSON.toJSONString(map);
+    }
+
+    //获取退款订单
+    @RequestMapping("/getRefundOrder.do")
+    @ResponseBody
+    public String getRefundOrder(HttpSession session){
+        List<Orders> list=orderService.getRefundOrder(session);
+        return JSON.toJSONString(list);
     }
 
     public void setOrderService(OrderService orderService) {

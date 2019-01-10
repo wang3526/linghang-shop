@@ -33,4 +33,8 @@ public interface OrderMapper {
     public void updateShippingCode(Orders orders);
     //退款成功
     public void refundSuccess(Orders orders);
+    //付款成功，获取信息
+    public HashMap<String,String> showOne(String code);
+    //获取退款订单
+    public List<Orders> getRefundOrder(int userId);
 }

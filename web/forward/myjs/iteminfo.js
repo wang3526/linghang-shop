@@ -187,7 +187,9 @@ function addCart(id){
     var color=$("#fuselage-color").find(".selected").text();
     var memory=$("#storage-capacity").find(".selected").text();
     $.post(path+"/shopcar/addShopcar.do",{"itemId":id,"price":$("#item-price").text(),"color":color,"memory":memory,"num":num},function (data) {
-        alert(data);
+        if(data=="IsAjax"){
+            window.location.href=path+"/forward/home/login.html";
+        }
     },"json");
 }
 //立即购买
@@ -198,7 +200,16 @@ function toBuy(id) {
         var color=$("#fuselage-color").find(".selected").text();
         var memory=$("#storage-capacity").find(".selected").text();
         $.post(path + "/shopcar/addOrderOne.do", {"itemId":id,"price":$("#item-price").text(),"color":color,"memory":memory,"num":num}, function (data) {
-            window.location.href = "pay.html";
+            if(data=="IsAjax"){
+                window.location.href=path+"/forward/home/login.html";
+            }else {
+                window.location.href = "pay.html";
+            }
         },"json");
     }
 }
+
+$("#ai-topsearch").click(function () {
+    var keyword=$("#searchInput").val();
+    window.location.href="search.html?keyword="+encodeURI(encodeURI(keyword));
+})

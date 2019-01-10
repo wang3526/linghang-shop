@@ -26,4 +26,6 @@ public interface ItemService {
     public Item getItemById(int id);
     //根据id获取同类商品
     public List<Item> getCateItemById(int id);
+    //根据手机品牌模糊查询
+    public List<Item> getItemByName(String keyword);
 }
